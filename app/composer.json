@@ -1,0 +1,18 @@
+{
+    "name": "damiano/uuid",
+    "require": {
+        "doctrine/dbal": "^2.5",
+        "ramsey/uuid": "^3.6"
+    },
+    "authors": [
+        {
+            "name": "damiano Petrungaro",
+            "email": "dp@halo.as"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Damiano\\Uuid\\":"src/"
+        }
+    }
+}

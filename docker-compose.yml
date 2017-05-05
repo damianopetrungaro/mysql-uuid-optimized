@@ -1,0 +1,30 @@
+version: '2'
+services:
+  app:
+    build:
+      context: ./app
+    container_name: ${APP_CONTAINER_NAME}
+    ports:
+      - ${APP_PORT_BINDING}
+    volumes:
+      - ./app/:/var/www/app
+    environment:
+      APP_SERVER_NAME: ${APP_SERVER_NAME}
+      MYSQL_CONTAINER_NAME: ${MYSQL_CONTAINER_NAME}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+    networks:
+      - back
+  mysql:
+    image: mysql:5.6
+    container_name: ${MYSQL_CONTAINER_NAME}
+    user: mysql
+    ports:
+      - ${MYSQL_PORT_BINDING}
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      - back
+networks:
+  back:
+    driver: "bridge"
