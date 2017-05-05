@@ -27,7 +27,7 @@ class UuidOptimized
      */
     public function optimized(): string
     {
-        $uuidStringParts = explode('-', (string) $this->uuid);
+        $uuidStringParts = explode('-', (string)$this->uuid);
 
         return sprintf('%s-%s-%s-%s-%s',
             $uuidStringParts[2],
@@ -45,6 +45,6 @@ class UuidOptimized
      */
     public function optimizedForPersistence(): string
     {
-        return hex2bin(str_replace('-','',$this->optimized()));
+        return hex2bin(str_replace('-', '', $this->optimized()));
     }
 }
